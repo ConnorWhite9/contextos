@@ -1,0 +1,110 @@
+{
+  "name": "contextos",
+  "displayName": "ContextOS",
+  "description": "Local-first context scheduler for AI coding agents. Token budgeting, AST-aware compression, and transparent context preview.",
+  "version": "0.1.0",
+  "publisher": "contextos",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "Machine Learning",
+    "Programming Languages"
+  ],
+  "keywords": [
+    "ai",
+    "llm",
+    "context",
+    "token",
+    "prompt",
+    "copilot"
+  ],
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "contextos.generate",
+        "title": "ContextOS: Generate with Optimized Context"
+      },
+      {
+        "command": "contextos.preview",
+        "title": "ContextOS: Preview Context"
+      },
+      {
+        "command": "contextos.setApiKey",
+        "title": "ContextOS: Set API Key"
+      },
+      {
+        "command": "contextos.clearCache",
+        "title": "ContextOS: Clear AST Cache"
+      }
+    ],
+    "configuration": {
+      "title": "ContextOS",
+      "properties": {
+        "contextos.maxTokens": {
+          "type": "number",
+          "default": 8000,
+          "description": "Maximum token budget for the assembled context."
+        },
+        "contextos.budgetSplit": {
+          "type": "object",
+          "default": {
+            "activeFile": 0.35,
+            "dependencies": 0.3,
+            "summaries": 0.2,
+            "history": 0.15
+          },
+          "description": "Proportional token budget across context categories (must sum to 1.0)."
+        },
+        "contextos.provider": {
+          "type": "string",
+          "enum": [
+            "openai",
+            "anthropic",
+            "dryrun"
+          ],
+          "default": "dryrun",
+          "description": "LLM provider to use. Use 'dryrun' to skip network calls."
+        },
+        "contextos.model": {
+          "type": "string",
+          "default": "gpt-4o-mini",
+          "description": "Model identifier (provider-specific)."
+        },
+        "contextos.maxDependencyDepth": {
+          "type": "number",
+          "default": 2,
+          "description": "Max transitive import depth to consider as dependencies."
+        },
+        "contextos.maxFilesScanned": {
+          "type": "number",
+          "default": 200,
+          "description": "Cap on files scanned per request (avoids full repo scans)."
+        },
+        "contextos.dryRun": {
+          "type": "boolean",
+          "default": false,
+          "description": "Always preview context; never send to provider."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0"
+  },
+  "dependencies": {
+    "typescript": "^5.9.3"
+  }
+}
