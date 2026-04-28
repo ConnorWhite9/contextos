@@ -54,7 +54,10 @@ export function buildPrompt(inputs: PromptInputs): BuiltPrompt {
   // definitions precede their use sites in the prompt.
   const allTypes: string[] = [];
   const allSignatures: string[] = [];
-  for (const item of [...activeFileItems, ...depItems, ...summaryItems]) {
+  // Avoid double-billing tokens from the active file: we include the full
+  // source later in the prompt, so we don't also lift its signatures/types
+  // into the early \"Relevant\" sections.
+  for (const item of [...depItems, ...summaryItems]) {
     if (item.compressed) {
       if (item.compressed.types.length > 0) {
         allTypes.push(`// ${item.compressed.path}`);

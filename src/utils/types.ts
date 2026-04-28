@@ -129,6 +129,8 @@ export interface EngineRequest {
   recentlyEditedPaths: string[];
   /** All candidate workspace paths (already capped upstream). */
   workspacePaths: string[];
+  /** Max transitive import depth to consider when collecting dependencies. */
+  maxDependencyDepth: number;
   /** Max tokens to spend on the assembled prompt. */
   maxTokens: number;
   /** Proportional split, must sum to ~1.0. */

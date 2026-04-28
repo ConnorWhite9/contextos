@@ -25,48 +25,6 @@ export interface RetrievalHit {
 }
 
 /**
- * Walk the import graph from `entryFile` up to `maxDepth`, returning each
- * reachable file with a score that decays with distance.
- */
-export function importGraphFrom(
-  entryFile: string,
-  maxDepth: number,
-  workspaceFiles: Set<string>,
-): RetrievalHit[] {
-  const seen = new Set<string>([entryFile]);
-  const hits: RetrievalHit[] = [];
-  const queue: Array<{ path: string; depth: number }> = [
-    { path: entryFile, depth: 0 },
-  ];
-
-  while (queue.length > 0) {
-    const { path, depth } = queue.shift()!;
-    if (depth >= maxDepth) {
-      continue;
-    }
-    const imports = directImportsOf(path);
-    for (const importPath of imports) {
-      const resolved = resolveToWorkspaceFile(importPath, workspaceFiles);
-      if (!resolved || seen.has(resolved)) {
-        continue;
-      }
-      seen.add(resolved);
-      const nextDepth = depth + 1;
-      hits.push({
-        path: resolved,
-        // 1.0 for a direct import, then halve per hop.
-        score: 1 / Math.pow(2, nextDepth - 1),
-        reason: nextDepth === 1 ? "direct-import" : "transitive-import",
-        depth: nextDepth,
-      });
-      queue.push({ path: resolved, depth: nextDepth });
-    }
-  }
-
-  return hits;
-}
-
-/**
  * Extract relative import specifiers from a file's top-level imports.
  * We reuse the cached AST so this is free when the file was already parsed
  * for compression.
@@ -95,25 +53,9 @@ function directImportsOf(filePath: string): string[] {
 }
 
 /**
- * Map an import specifier back onto a concrete workspace file path by
- * trying common TS/JS extensions. We only resolve relative imports for the
- * MVP — bare specifiers (node_modules) are intentionally skipped.
- */
-function resolveToWorkspaceFile(
-  specifier: string,
-  workspaceFiles: Set<string>,
-): string | undefined {
-  // Strip leading slash/dot noise; we need a concrete abs path resolved by the caller.
-  if (!specifier.startsWith(".") && !specifier.startsWith("/")) {
-    return undefined;
-  }
-  return undefined;
-}
-
-/**
  * Version of `importGraphFrom` that accepts a resolver so the engine can
  * pass in the right base path for each edge. Preferred over the one above
- * for general use; the stripped-down one exists only for unit testability.
+ * for general use.
  */
 export function importGraphWithResolver(
   entryFile: string,

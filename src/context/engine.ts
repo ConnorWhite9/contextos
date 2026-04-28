@@ -115,8 +115,8 @@ export class ContextEngine {
       const wsSet = new Set(req.workspacePaths);
       const hits = importGraphWithResolver(
         req.activeFilePath,
-        /* maxDepth */ 2,
-        (p) => fs.existsSync(p),
+        req.maxDependencyDepth,
+        (p) => wsSet.has(p),
       );
       for (const h of hits) {
         if (wsSet.has(h.path)) {

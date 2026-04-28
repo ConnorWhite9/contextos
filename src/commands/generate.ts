@@ -27,6 +27,7 @@ export async function runGenerate(
   const config = vscode.workspace.getConfiguration("contextos");
   const maxTokens = config.get<number>("maxTokens", 8000);
   const maxFiles = config.get<number>("maxFilesScanned", 200);
+  const maxDependencyDepth = config.get<number>("maxDependencyDepth", 2);
   const providerKind = config.get<ProviderKind>("provider", "dryrun");
   const model = config.get<string>("model", "gpt-4o-mini");
   const dryRunSetting = config.get<boolean>("dryRun", false);
@@ -59,6 +60,7 @@ export async function runGenerate(
     activeFileContent,
     recentlyEditedPaths: recentEdits.list(),
     workspacePaths,
+    maxDependencyDepth,
     maxTokens,
     budgetSplit: split,
   });
