@@ -35,13 +35,23 @@ export interface CompressedFile {
   path: string;
   /** Monotonic file mtime (ms since epoch); used as cache key. */
   mtimeMs: number;
+  /**
+   * Raw import specifiers (e.g. `"./user"`, `"react"`). Both relative and
+   * bare imports are kept — they're cheap and tell the model what the
+   * file depends on.
+   */
+  imports: string[];
   signatures: string[];
   types: string[];
   classes: string[];
+  /** Exported symbol names (useful for summaries and keyword matching). */
+  exports: string[];
   /** One-line natural-language summary of what the file does. */
   summary: string;
   /** Byte length of the original source, for reporting. */
   originalBytes: number;
+  /** Size of the rendered compressed form in characters, for ratios. */
+  compressedChars: number;
 }
 
 /**
