@@ -9,6 +9,7 @@ prompt building) testable in plain Node without requiring a VS Code host.
 - `npm test` — run the full unit test suite once
 - `npm run test:watch` — watch mode
 - `npm run coverage` — generate coverage in `coverage/`
+- `npm run bench:tokens` — quick token-savings benchmark (naive vs optimized)
 
 ## Structure
 
@@ -36,4 +37,11 @@ prompt building) testable in plain Node without requiring a VS Code host.
 - Prefer exercising real files by writing fixtures into a temp directory via `fs.mkdtempSync`.
 - Avoid importing `src/commands/**`, `src/ui/**`, or `src/extension.ts` in unit tests; those are integration-layer VS Code glue.
 - If you need `ContextStateStore` in a unit test, mock `vscode` APIs first (see `test/setup.ts`).
+
+## Token-savings benchmark
+
+The benchmark script prints JSON including min/max/avg % token reduction across a few representative active files.
+
+- Script: `bench/token-savings.js`
+- Run: `npm run compile && npm run bench:tokens`
 

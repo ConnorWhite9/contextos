@@ -39,7 +39,7 @@ describe("ast/parser", () => {
     )!;
     const init = decl.initializer;
     expect(init).toBeTruthy();
-    expect(init.kind).toBe(ts.SyntaxKind.TypeAssertionExpression);
+    expect(init!.kind).toBe(ts.SyntaxKind.TypeAssertionExpression);
   });
 });
 

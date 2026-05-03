@@ -101,7 +101,8 @@
     "lint": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "bench:tokens": "node ./bench/token-savings.js"
   },
   "devDependencies": {
     "@types/node": "^20.11.0",
