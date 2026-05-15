@@ -121,6 +121,29 @@
         "/Users/connorwhite/contextos/src/prompt/builder.test.ts",
         "/Users/connorwhite/contextos/src/utils/paths.test.ts"
       ]
+    },
+    {
+      "timestamp": 1778821234323,
+      "task": "add error handling to fetchUser",
+      "promptTokens": 10241,
+      "includedPaths": [
+        "/Users/connorwhite/contextos/src/context/engine.ts",
+        "/Users/connorwhite/contextos/src/ast/compressor.ts",
+        "/Users/connorwhite/contextos/src/commands/generate.ts",
+        "/Users/connorwhite/contextos/src/context/budgeter.ts",
+        "/Users/connorwhite/contextos/src/context/prioritizer.ts",
+        "/Users/connorwhite/contextos/src/prompt/builder.ts",
+        "/Users/connorwhite/contextos/src/retrieval/retriever.ts",
+        "/Users/connorwhite/contextos/src/utils/logger.ts",
+        "/Users/connorwhite/contextos/src/utils/paths.ts",
+        "/Users/connorwhite/contextos/src/utils/tokens.ts",
+        "/Users/connorwhite/contextos/src/utils/types.ts",
+        "/Users/connorwhite/contextos/src/ast/parser.ts",
+        "/Users/connorwhite/contextos/src/cli/index.ts",
+        "/Users/connorwhite/contextos/src/provider/adapter.ts",
+        "/Users/connorwhite/contextos/test/setup.ts",
+        "/Users/connorwhite/contextos/src/ast/compressor.test.ts"
+      ]
     }
   ]
 }

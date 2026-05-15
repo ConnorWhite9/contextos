@@ -106,7 +106,8 @@
     "test:watch": "vitest",
     "coverage": "vitest run --coverage",
     "bench:tokens": "node ./bench/token-savings.js",
-    "cli": "node ./out/cli/index.js"
+    "ctx": "node ./out/cli/index.js",
+    "ctx:send": "node ./out/cli/index.js --send"
   },
   "devDependencies": {
     "@types/node": "^20.11.0",

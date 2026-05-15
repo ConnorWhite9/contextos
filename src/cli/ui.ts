@@ -212,6 +212,13 @@ export function printFileTable(decisions: BudgetDecision[], workspace: string): 
   blank();
 }
 
+/** Print a status line before piping to an external tool. */
+export function printPipe(target: string, resolvedCmd: string): void {
+  const label = target === resolvedCmd ? target : `${target} ${dim("→")} ${resolvedCmd}`;
+  err(`  ${cyan("⟶")}  Piping to ${bold(label)}${dim("…")}`);
+  blank();
+}
+
 /** Print a status line before sending to a provider. */
 export function printSending(provider: string, model: string): void {
   err(`  ${cyan("●")}  Sending to ${bold(provider + "/" + model)}${dim("…")}`);

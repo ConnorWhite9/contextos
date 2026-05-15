@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Convenience wrapper — no npm link needed.
+# Usage: ./ctx "task" [-f src/file.ts] [--pipe claude] [--json] ...
+set -euo pipefail
+node "$(dirname "$0")/out/cli/index.js" "$@"
