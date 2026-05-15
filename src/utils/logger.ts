@@ -9,9 +9,15 @@ import * as vscode from "vscode";
  */
 class Logger {
   private channel: vscode.OutputChannel | undefined;
+  private silent = false;
 
   init(channel: vscode.OutputChannel): void {
     this.channel = channel;
+  }
+
+  /** Suppress all output — used by the CLI to keep stderr clean. */
+  silence(): void {
+    this.silent = true;
   }
 
   info(msg: string): void {
@@ -46,12 +52,16 @@ class Logger {
   }
 
   private write(level: string, msg: string): void {
+    if (this.silent) {
+      return;
+    }
     const line = `[${new Date().toISOString()}] ${level} ${msg}`;
     if (this.channel) {
       this.channel.appendLine(line);
     } else {
-      // Fallback for pre-activation or test contexts.
-      console.log(line);
+      // Fallback for pre-activation, test, and CLI contexts.
+      // stderr keeps diagnostic output separate from CLI stdout data.
+      console.error(line);
     }
   }
 }

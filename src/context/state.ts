@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { ContextState, HistoryEntry } from "../utils/types";
+import { ContextState, HistoryEntry, IContextStateStore } from "../utils/types";
 
 /**
  * Persistent scheduler state.
@@ -21,7 +21,7 @@ const STATE_KEY = "contextos.state.v1";
 const MAX_HISTORY = 50;
 const MAX_WORKING_MEMORY = 20;
 
-export class ContextStateStore {
+export class ContextStateStore implements IContextStateStore {
   private cache: ContextState;
 
   constructor(private readonly memento: vscode.Memento) {

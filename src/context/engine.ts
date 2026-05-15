@@ -2,6 +2,7 @@ import * as fs from "fs";
 import {
   ContextItem,
   EngineRequest,
+  IContextStateStore,
   ScheduleResult,
 } from "../utils/types";
 import { compressFile, renderCompressed } from "../ast/compressor";
@@ -14,7 +15,6 @@ import {
 import { prioritize, reason } from "./prioritizer";
 import { budget } from "./budgeter";
 import { buildPrompt } from "../prompt/builder";
-import { ContextStateStore } from "./state";
 import { estimateTokens, clampToTokens } from "../utils/tokens";
 import { isTypeScriptLike } from "../utils/paths";
 import { log } from "../utils/logger";
@@ -39,7 +39,7 @@ import { log } from "../utils/logger";
  */
 
 export class ContextEngine {
-  constructor(private readonly state: ContextStateStore) {}
+  constructor(private readonly state: IContextStateStore) {}
 
   async run(req: EngineRequest): Promise<ScheduleResult> {
     const start = Date.now();

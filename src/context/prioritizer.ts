@@ -1,6 +1,5 @@
-import { ContextItem, SelectionReason } from "../utils/types";
+import { ContextItem, IContextStateStore, SelectionReason } from "../utils/types";
 import { fileKindWeight } from "../utils/paths";
-import { ContextStateStore } from "./state";
 
 /**
  * Prioritization.
@@ -23,7 +22,7 @@ export interface PrioritizerInputs {
   /** Absolute path of the active file, if any. */
   activeFilePath?: string;
   /** State store used for recency weighting. */
-  state: ContextStateStore;
+  state: IContextStateStore;
   /** Keywords derived from the task — boosts items whose path contains them. */
   taskKeywords: string[];
 }

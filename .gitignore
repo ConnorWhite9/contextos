@@ -4,3 +4,7 @@ out/
 .vscode-test/
 .DS_Store
 *.log
+
+# Local planning / working docs (ignored)
+GETTING_STARTED.md
+docs/ENGINEERING_ROADMAP.md

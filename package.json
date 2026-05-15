@@ -21,6 +21,9 @@
     "copilot"
   ],
   "main": "./out/extension.js",
+  "bin": {
+    "contextos": "./out/cli/index.js"
+  },
   "activationEvents": [
     "onStartupFinished"
   ],
@@ -96,13 +99,14 @@
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
+    "compile": "tsc -p ./ && chmod +x ./out/cli/index.js",
     "watch": "tsc -watch -p ./",
     "lint": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
     "coverage": "vitest run --coverage",
-    "bench:tokens": "node ./bench/token-savings.js"
+    "bench:tokens": "node ./bench/token-savings.js",
+    "cli": "node ./out/cli/index.js"
   },
   "devDependencies": {
     "@types/node": "^20.11.0",

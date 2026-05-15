@@ -120,6 +120,19 @@ export interface HistoryEntry {
   includedPaths: string[];
 }
 
+/**
+ * Minimal state interface consumed by the engine pipeline.
+ *
+ * Both the VS Code implementation (vscode.Memento-backed) and the CLI
+ * implementation (JSON-file-backed) satisfy this contract, so all core
+ * modules can stay vscode-free while still being driven by either host.
+ */
+export interface IContextStateStore {
+  get(): ContextState;
+  recencyScore(path: string): number;
+  recordHistory(entry: HistoryEntry): void;
+}
+
 /** Input to the engine — a single user request. */
 export interface EngineRequest {
   task: string;

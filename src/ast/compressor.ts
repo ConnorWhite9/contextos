@@ -1,6 +1,7 @@
 import * as ts from "typescript";
 import { parseFile } from "./parser";
 import { CompressedFile } from "../utils/types";
+import { isTypeScriptLike } from "../utils/paths";
 
 /**
  * AST-aware compression.
@@ -34,6 +35,9 @@ const printer = ts.createPrinter({
 });
 
 export function compressFile(filePath: string): CompressedFile | undefined {
+  if (!isTypeScriptLike(filePath)) {
+    return undefined;
+  }
   const parsed = parseFile(filePath);
   if (!parsed) {
     return undefined;
@@ -492,14 +496,8 @@ function dedupe(values: string[]): string[] {
  */
 export function renderCompressed(c: CompressedFile): string {
   const lines: string[] = [];
-  const ratio = c.originalBytes > 0
-    ? (c.compressedChars / c.originalBytes).toFixed(2)
-    : "?";
   lines.push(`// file: ${c.path}`);
   lines.push(`// summary: ${c.summary}`);
-  if (c.originalBytes > 0 && c.compressedChars > 0) {
-    lines.push(`// compression: ${c.compressedChars} / ${c.originalBytes} bytes (ratio ${ratio})`);
-  }
   if (c.imports.length > 0) {
     lines.push("// imports:");
     lines.push(c.imports.join("\n"));

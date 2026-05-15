@@ -1,0 +1,126 @@
+{
+  "invariants": [],
+  "workingMemory": [],
+  "history": [
+    {
+      "timestamp": 1778819718365,
+      "task": "add error handling to fetchUser",
+      "promptTokens": 10199,
+      "includedPaths": [
+        "/Users/connorwhite/contextos/src/context/engine.ts",
+        "/Users/connorwhite/contextos/src/ast/compressor.ts",
+        "/Users/connorwhite/contextos/src/cli/index.ts",
+        "/Users/connorwhite/contextos/src/commands/generate.ts",
+        "/Users/connorwhite/contextos/src/context/budgeter.ts",
+        "/Users/connorwhite/contextos/src/context/prioritizer.ts",
+        "/Users/connorwhite/contextos/src/prompt/builder.ts",
+        "/Users/connorwhite/contextos/src/retrieval/retriever.ts",
+        "/Users/connorwhite/contextos/src/utils/logger.ts",
+        "/Users/connorwhite/contextos/src/utils/paths.ts",
+        "/Users/connorwhite/contextos/src/utils/tokens.ts",
+        "/Users/connorwhite/contextos/src/utils/types.ts",
+        "/Users/connorwhite/contextos/src/ast/parser.ts",
+        "/Users/connorwhite/contextos/src/provider/adapter.ts",
+        "/Users/connorwhite/contextos/test/setup.ts",
+        "/Users/connorwhite/contextos/src/ast/compressor.test.ts",
+        "/Users/connorwhite/contextos/src/retrieval/retriever.test.ts"
+      ]
+    },
+    {
+      "timestamp": 1778819722091,
+      "task": "add error handling to fetchUser",
+      "promptTokens": 10218,
+      "includedPaths": [
+        "/Users/connorwhite/contextos/src/context/engine.ts",
+        "/Users/connorwhite/contextos/src/ast/compressor.ts",
+        "/Users/connorwhite/contextos/src/cli/index.ts",
+        "/Users/connorwhite/contextos/src/commands/generate.ts",
+        "/Users/connorwhite/contextos/src/context/budgeter.ts",
+        "/Users/connorwhite/contextos/src/context/prioritizer.ts",
+        "/Users/connorwhite/contextos/src/prompt/builder.ts",
+        "/Users/connorwhite/contextos/src/retrieval/retriever.ts",
+        "/Users/connorwhite/contextos/src/utils/logger.ts",
+        "/Users/connorwhite/contextos/src/utils/paths.ts",
+        "/Users/connorwhite/contextos/src/utils/tokens.ts",
+        "/Users/connorwhite/contextos/src/utils/types.ts",
+        "/Users/connorwhite/contextos/src/ast/parser.ts",
+        "/Users/connorwhite/contextos/src/provider/adapter.ts",
+        "/Users/connorwhite/contextos/test/setup.ts",
+        "/Users/connorwhite/contextos/src/ast/compressor.test.ts",
+        "/Users/connorwhite/contextos/src/retrieval/retriever.test.ts"
+      ]
+    },
+    {
+      "timestamp": 1778820480372,
+      "task": "hello world funciton",
+      "promptTokens": 66,
+      "includedPaths": [
+        "/Users/connorwhite/contextos/src/utils/tokens.test.ts"
+      ]
+    },
+    {
+      "timestamp": 1778820682022,
+      "task": "add error handling to fetchUser",
+      "promptTokens": 10111,
+      "includedPaths": [
+        "/Users/connorwhite/contextos/src/context/engine.ts",
+        "/Users/connorwhite/contextos/src/ast/compressor.ts",
+        "/Users/connorwhite/contextos/src/commands/generate.ts",
+        "/Users/connorwhite/contextos/src/context/budgeter.ts",
+        "/Users/connorwhite/contextos/src/context/prioritizer.ts",
+        "/Users/connorwhite/contextos/src/prompt/builder.ts",
+        "/Users/connorwhite/contextos/src/retrieval/retriever.ts",
+        "/Users/connorwhite/contextos/src/utils/logger.ts",
+        "/Users/connorwhite/contextos/src/utils/paths.ts",
+        "/Users/connorwhite/contextos/src/utils/tokens.ts",
+        "/Users/connorwhite/contextos/src/utils/types.ts",
+        "/Users/connorwhite/contextos/src/ast/parser.ts",
+        "/Users/connorwhite/contextos/src/cli/index.ts",
+        "/Users/connorwhite/contextos/src/provider/adapter.ts",
+        "/Users/connorwhite/contextos/test/setup.ts",
+        "/Users/connorwhite/contextos/src/ast/compressor.test.ts"
+      ]
+    },
+    {
+      "timestamp": 1778820726845,
+      "task": "add error handling to fetchUser",
+      "promptTokens": 10116,
+      "includedPaths": [
+        "/Users/connorwhite/contextos/src/context/engine.ts",
+        "/Users/connorwhite/contextos/src/ast/compressor.ts",
+        "/Users/connorwhite/contextos/src/commands/generate.ts",
+        "/Users/connorwhite/contextos/src/context/budgeter.ts",
+        "/Users/connorwhite/contextos/src/context/prioritizer.ts",
+        "/Users/connorwhite/contextos/src/prompt/builder.ts",
+        "/Users/connorwhite/contextos/src/retrieval/retriever.ts",
+        "/Users/connorwhite/contextos/src/utils/logger.ts",
+        "/Users/connorwhite/contextos/src/utils/paths.ts",
+        "/Users/connorwhite/contextos/src/utils/tokens.ts",
+        "/Users/connorwhite/contextos/src/utils/types.ts",
+        "/Users/connorwhite/contextos/src/ast/parser.ts",
+        "/Users/connorwhite/contextos/src/cli/index.ts",
+        "/Users/connorwhite/contextos/src/provider/adapter.ts",
+        "/Users/connorwhite/contextos/test/setup.ts",
+        "/Users/connorwhite/contextos/src/ast/compressor.test.ts"
+      ]
+    },
+    {
+      "timestamp": 1778820851695,
+      "task": "fix the off-by-one in paginate",
+      "promptTokens": 2246,
+      "includedPaths": [
+        "/Users/connorwhite/contextos/src/context/prioritizer.ts",
+        "/Users/connorwhite/contextos/src/retrieval/retriever.ts",
+        "/Users/connorwhite/contextos/src/utils/logger.ts",
+        "/Users/connorwhite/contextos/src/utils/paths.ts",
+        "/Users/connorwhite/contextos/src/utils/types.ts",
+        "/Users/connorwhite/contextos/src/context/state.ts",
+        "/Users/connorwhite/contextos/src/ui/previewPanel.ts",
+        "/Users/connorwhite/contextos/src/ast/parser.test.ts",
+        "/Users/connorwhite/contextos/src/context/budgeter.test.ts",
+        "/Users/connorwhite/contextos/src/prompt/builder.test.ts",
+        "/Users/connorwhite/contextos/src/utils/paths.test.ts"
+      ]
+    }
+  ]
+}
